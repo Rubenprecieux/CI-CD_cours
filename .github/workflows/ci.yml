@@ -7,8 +7,8 @@ on:
   pull_request:
     branches: [ "main"]
 
-  jobs:
-    test-html:
+jobs:
+  test-html:
       runs-on: ubuntu-latest
       steps:
         - name: récupération du code
