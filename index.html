@@ -1,10 +1,170 @@
 <!DOCTYPE html>
-<html>
-<head> 
-	<title> Premier labo</title> 
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salon Éclat Coiffure</title>
+<style>
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:'Lato', sans-serif; background:#0A4834; color:#333; scroll-behavior:smooth; }
+a { text-decoration:none; color:inherit; }
+.btn { background:#d4af37; color:#000; padding:12px 25px; border-radius:5px; font-weight:bold; display:inline-block; transition:0.3s; }
+.btn:hover { background:#b7952d; transform:scale(1.05); }
+
+/* Sticky menu */
+nav { position:sticky; top:0; background:rgba(255,255,255,0.95); display:flex; justify-content:center; gap:25px; padding:15px 0; box-shadow:0 2px 6px rgba(0,0,0,0.1); z-index:1000; }
+nav a { color:#d4af37; font-weight:bold; transition:0.3s; }
+nav a:hover { color:#333; }
+
+/* Header with background */
+header { text-align:center; padding:150px 20px; background-image:url('https://images.pexels.com/photos/853427/pexels-photo-853427.jpeg'); background-size:cover; background-position:center; color:#fff; position:relative; opacity: 0.7;}
+header::after { content:''; position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.35); }
+header h1, header p, header a { position:relative; z-index:1; }
+header h1 { font-family:'Playfair Display', serif; font-size:48px; margin-bottom:10px; }
+header p { font-size:22px; margin-bottom:20px; }
+
+/* Sections */
+section { padding:60px 20px; text-align:center; position:relative; z-index:1; }
+h2 { font-family:'Playfair Display', serif; font-size:32px; margin-bottom:40px; color:#d4af37; }
+
+/* Prestations en grille */
+.services-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; }
+.service-card { background:#EBE1CF; padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); transition:0.3s; }
+.service-card:hover { transform:translateY(-5px); }
+.service-card img { width:100%; border-radius:10px; margin-bottom:15px; }
+
+/* Galerie en grille */
+.gallery-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:15px; }
+.gallery-grid img { width:100%; border-radius:10px; transition:0.3s; }
+.gallery-grid img:hover { transform:scale(1.05); }
+
+/* Testimonials */
+.testimonial { background:#fff; padding:20px; border-radius:10px; box-shadow:0 2px 8px rgba(0,0,0,0.1); margin:10px; }
+
+/* Contact form */
+form { max-width:500px; margin:0 auto; display:flex; flex-direction:column; gap:10px; }
+input, textarea { padding:10px; border-radius:5px; border:1px solid #ccc; background:#fff; color:#333; }
+button { cursor:pointer; }
+
+#map { width:100%; height:300px; border-radius:10px; margin-top:20px; }
+
+footer { background:#fff; color:#555; text-align:center; padding:20px; box-shadow:0 -2px 6px rgba(0,0,0,0.1); }
+footer p { margin:5px 0; }
+
+@media(max-width:600px){ 
+    .services-grid, .gallery-grid{ grid-template-columns:1fr; }
+    nav { flex-direction:column; gap:10px; }
+}
+</style>
 </head>
 <body>
-	<h1> Mise en oeuvre CI/CD </h1>
-	<p>La page est en ligne ! </p>
+
+
+
+<!-- Header -->
+<header>
+    <h1>Salon Éclat Coiffure</h1>
+    <p>Votre style, notre savoir-faire</p>
+    <a href="#contact" class="btn">Réservez votre séance</a>
+</header>
+
+<!-- Prestations -->
+<section id="services">
+    <h2>Nos Prestations</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <img src="https://images.pexels.com/photos/4625625/pexels-photo-4625625.jpeg" alt="Coupe">
+            <h3>Coupe & Coiffure</h3>
+            <p>Pour homme, femme et enfant</p>
+            <p>À partir de 20 €</p>
+            <a href="https://wa.me/0612345678" class="btn">Réserver WhatsApp</a>
+        </div>
+        <div class="service-card">
+            <img src="https://images.pexels.com/photos/7388928/pexels-photo-7388928.jpeg" alt="Coloration">
+            <h3>Coloration</h3>
+            <p>Mèches, balayage, coloration</p>
+            <p>À partir de 40 €</p>
+            <a href="https://wa.me/0612345678" class="btn">Réserver WhatsApp</a>
+        </div>
+        <div class="service-card">
+            <img src="https://images.pexels.com/photos/4625625/pexels-photo-4625625.jpeg" alt="Brushing">
+            <h3>Brushing & Styling</h3>
+            <p>Lissage, brushing, coiffure de soirée</p>
+            <p>À partir de 25 €</p>
+            <a href="https://wa.me/0612345678" class="btn">Réserver WhatsApp</a>
+        </div>
+        <div class="service-card">
+            <img src="https://images.pexels.com/photos/7755513/pexels-photo-7755513.jpeg" alt="Soins cheveux">
+            <h3>Soin & Traitement</h3>
+            <p>Nutrition, réparation et brillance</p>
+            <p>À partir de 30 €</p>
+            <a href="https://wa.me/0612345678" class="btn">Réserver WhatsApp</a>
+        </div>
+    </div>
+</section>
+
+<!-- Galerie -->
+<section id="gallery">
+    <h2>Galerie</h2>
+    <div class="gallery-grid">
+        <img src="https://images.pexels.com/photos/3992874/pexels-photo-3992874.jpeg" alt="Salon">
+        <img src="https://images.pexels.com/photos/28994396/pexels-photo-28994396.jpeg" alt="Coloration">
+        <img src="https://images.pexels.com/photos/3992874/pexels-photo-3992874.jpeg" alt="Brushing">
+        <img src="https://images.pexels.com/photos/7755513/pexels-photo-7755513.jpeg" alt="Soin cheveux">
+    </div>
+</section>
+
+<!-- Testimonials -->
+<section id="testimonials">
+    <h2>Avis clients</h2>
+    <div class="services-grid">
+        <div class="testimonial">
+            <p>"Super salon ! Coupe et couleur parfaites." – Clara P.</p>
+        </div>
+        <div class="testimonial">
+            <p>"Équipe très professionnelle et ambiance agréable." – Marc D.</p>
+        </div>
+        <div class="testimonial">
+            <p>"Je recommande vivement pour les coiffures de soirée !" – Sophie R.</p>
+        </div>
+    </div>
+</section>
+
+<!-- About -->
+<section id="about">
+    <h2 >À propos de nous</h2>
+    <p style="color: #fff;">Salon Éclat Coiffure vous offre une expérience unique : des prestations personnalisées, des produits de qualité et une équipe passionnée pour sublimer votre style et révéler votre éclat.</p>
+</section>
+
+<!-- Contact -->
+<section id="contact">
+    <h2>Contact & Réservation</h2>
+    <form onsubmit="alert('Merci pour votre message ! Nous vous répondrons bientôt.'); return false;">
+        <input type="text" placeholder="Nom" required>
+        <input type="email" placeholder="Email" required>
+        <textarea rows="5" placeholder="Message"></textarea>
+        <button type="submit" class="btn">Envoyer</button>
+    </form>
+    <p style="color: #fff;">📞 <a href="https://wa.me/0612345678">06 12 34 56 78</a> | 📧 info@saloneclat.fr</p>
+    <p style="color: #fff;">📍 789 Rue de l'Éclat, 75000 Paris</p>
+    <div id="map" style=" color: #fff;"></div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>Suivez-nous sur Instagram & Facebook</p>
+    <p>© 2026 Salon Éclat Coiffure | Mentions légales</p>
+</footer>
+
+<!-- Google Maps -->
+<script>
+function initMap() {
+    const salon = {lat:48.8566,lng:2.3522};
+    const map = new google.maps.Map(document.getElementById("map"), {zoom:14,center:salon});
+    new google.maps.Marker({position:salon,map:map});
+}
+</script>
+<script async src="https://maps.googleapis.com/maps/api/js?key=VOTRE_CLE_API&callback=initMap"></script>
+
 </body>
 </html>
